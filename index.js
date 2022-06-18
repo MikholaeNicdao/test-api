@@ -1,13 +1,26 @@
-const express = require("express")
-const res = require("express/lib/response")
+'use strict'
+
+const express = require('express')
 const app = express()
+const cors = require('cors')
+const bodyParser = require('body-parser')
 
-const PORT = process.env.PORT || 8080
+// Initialize Routes
+const apiRoute = require('./src/routes/api.route')
 
-app.get('/', (req,res)=>{
-    res.send("Hello World!")
-})
+require('dotenv').config()
+const port = process.env.HPORT || 8080
 
-app.listen(PORT, ()=>{
-    console.log(`You are connected to port ${PORT}`)
+// Enable all CORS
+app.use(cors())
+
+// Initialize bodyparser to JSON
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
+
+// API
+app.use('/api/', apiRoute)
+
+app.listen(port, ()=>{
+    console.log(`Server is listening on port ${port}`)
 })
