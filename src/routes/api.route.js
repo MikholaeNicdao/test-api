@@ -13,7 +13,7 @@ router.post('/create/admin/account', apiController.createAdmin)
 router.post('/login/admin', apiController.loginAdmin)
 
 // GET routers for static page
-router.get('/', apiController.getSchedule)
+router.get('/Home', apiController.getSchedule)
 router.get('/Faculty', apiController.getAllFaculty)
 router.get('/SchoolActivities', apiController.getAllSchoolActivities)
 router.get('/SchoolActivities/:id', apiController.getByIdSA)
