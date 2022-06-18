@@ -4,7 +4,7 @@ const app = express()
 
 const PORT = process.env.PORT || 8080
 
-app.use('/', (req,res)=>{
+app.get('/', (req,res)=>{
     res.json({success: "Succesasdasds"})
 })
 
